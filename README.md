@@ -9,15 +9,17 @@ Swagger UI is integrated in the Web API and it is also possible to test the endp
 
 ### Architecture/Deployment diagram of the service
 
-Comming soon
+Json file is used as persistent storage to store the Profanity list and LazyCache is used to store profanity list in memory for faster access of the data.
+
+More Comming soon...
 
 ### Propose any ideas how to improve performance or resilience of the service ?
 
-Comming soon
+Comming soon....
 
 ### Propose ways to secure the service and REST API ?
 
-Comming soon
+Comming soon.....
 
 ### Implement or propose health and performance metrics to monitor with the service
 
