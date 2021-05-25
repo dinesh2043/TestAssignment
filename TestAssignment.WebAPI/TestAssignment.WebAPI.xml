@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TestAssignment.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:TestAssignment.WebAPI.Controllers.ProfanityListController.GetProfanityList">
+            <summary>
+            Asynchronous get request
+            </summary>
+            <remarks>To get a profanity list.(I have used Profanity Detector nuget profanity list.)
+            </remarks>
+        </member>
+        <member name="M:TestAssignment.WebAPI.Controllers.ProfanityListController.AddProfanity(System.String)">
+            <summary>
+            Asynchronous post request
+            </summary>
+            <remarks>To add a profanity to the list. (Profanity Detector NuGet's Profanity List is used.)
+            </remarks>
+        </member>
+        <member name="M:TestAssignment.WebAPI.Controllers.ProfanityListController.DeleteProfanity(System.String)">
+            <summary>
+            Asynchronous delete request
+            </summary>
+            <remarks>To delete a profanity from the list.(Profanity Detector NuGet's Profanity List is used.)
+            </remarks>
+        </member>
+        <member name="M:TestAssignment.WebAPI.Controllers.UploadFileController.UploadTextFile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Upload Text File (*.txt). 
+            </summary>
+            <remarks>
+            Asynchronous request to upload text file after profanity check. Only *.txt file less then or equal 2MB is supported.
+            Endpoint counts only unique profanity words and processing time is calculated in milliseconds.
+            </remarks>
+        </member>
+    </members>
+</doc>
