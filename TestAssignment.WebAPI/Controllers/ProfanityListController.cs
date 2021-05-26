@@ -56,16 +56,26 @@ namespace TestAssignment.WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         public async Task<IActionResult> AddProfanity(string profanity)
         {
-            var addProfanityResult = await _profanityListRepository.AddProfanity(profanity.ToLower());
-            if (addProfanityResult)
+            if (!string.IsNullOrEmpty(profanity))
             {
-                _logger.LogInformation("Profanity is successfully added to the ProfanityList.");
-                return Ok("Profanity is successfully added to the ProfanityList.");
+                var addProfanityResult = await _profanityListRepository.AddProfanity(profanity.ToLower());
+                if (addProfanityResult)
+                {
+                    _logger.LogInformation("Profanity is successfully added to the ProfanityList.");
+                    return Ok("Profanity is successfully added to the ProfanityList.");
+                }
+                else
+                {
+                    _logger.LogWarning("Profanity already exists in ProfanityList.");
+                    return BadRequest("Profanity already exists in ProfanityList.");
+                }
+
             }
             else
             {
-                _logger.LogWarning("Profanity already exists in ProfanityList.");
-                return BadRequest("Profanity already exists in ProfanityList.");
+                _logger.LogWarning("Profanity can not be null or empty value.");
+                return BadRequest("Profanity can not be null or empty value.");
+
             }
         }
 
@@ -80,16 +90,24 @@ namespace TestAssignment.WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         public async Task<IActionResult> DeleteProfanity(string profanity)
         {
-            var addProfanityResult = await _profanityListRepository.DeleteProfanity(profanity.ToLower());
-            if (addProfanityResult)
+            if (!string.IsNullOrEmpty(profanity))
             {
-                _logger.LogInformation("Profanity is successfully deleted from the ProfanityList.");
-                return Ok("Profanity is successfully deleted from the ProfanityList.");
-            }
-            else
+                var addProfanityResult = await _profanityListRepository.DeleteProfanity(profanity.ToLower());
+                if (addProfanityResult)
+                {
+                    _logger.LogInformation("Profanity is successfully deleted from the ProfanityList.");
+                    return Ok("Profanity is successfully deleted from the ProfanityList.");
+                }
+                else
+                {
+                    _logger.LogWarning("Profanity does not exists in ProfanityList.");
+                    return BadRequest("Profanity does not exists in ProfanityList.");
+                }
+            }else
             {
-                _logger.LogWarning("Profanity does not exists in ProfanityList.");
-                return BadRequest("Profanity does not exists in ProfanityList.");
+                _logger.LogWarning("Profanity can not be null or empty value.");
+                return BadRequest("Profanity can not be null or empty value.");
+
             }
         }
 
