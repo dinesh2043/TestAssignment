@@ -24,7 +24,7 @@ namespace TestAssignment.WebAPI.Controllers
         /// <summary>
         /// Asynchronous get request
         /// </summary>
-        /// <remarks>To get a profanity list.(I have used Profanity Detector nuget profanity list.)
+        /// <remarks>To get a profanity list.(Profanity Detector nuget profanity list.)
         /// </remarks>
         // GET ProfanityList
         [HttpGet]
